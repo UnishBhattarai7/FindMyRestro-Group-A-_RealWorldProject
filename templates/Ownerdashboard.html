@@ -1,0 +1,296 @@
+<!doctype html>
+{% load static %}
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>FindMyRestro</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/flaticon.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/gijgo.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/slick.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/slicknav.css'%}"/>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'%}"/>
+
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <!-- <link rel="stylesheet" href="{% static 'css/responsive.css'%}"/> -->
+</head>
+
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- header-start -->
+<!-- header-start -->
+<header>
+    <div class="header-area ">
+        <div id="sticky-header" class="main-header-area">
+            <div class="container-fluid ">
+                <div class="header_bottom_border">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-3 col-md-2 col-sm-3 col-xs-3">
+                            <div class="logo-img">
+                                <a href="../../home">
+                                    <img class="img-fluid" src="{% static 'img/logo.png' %}" style="height:150px;">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-lg-7">
+                            <div class="main-menu  d-none d-lg-block">
+
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header-end -->
+
+<!-- slider_area_start -->
+
+<div class="slider_area">
+    <div class="single_slider  d-flex align-items-center slider_bg_1">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xl-10">
+                    <div class="slider_text text-center justify-content-center">
+
+                        <div class="col-xl-12">
+                            <div class="bradcam_text text-center">
+                        {% for o in restaurant %}
+                                {% for a in owner %}
+
+            {% if a.restaurant == o.restaurantName %}
+
+                                <div class=owner">
+                            <h1 style="font-family:Algerian;font-size:50px;color:white;margin-top:50px;">{{o.restaurantName}}</h1>
+                                </div>
+            {% endif %}
+                                {% endfor %}
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                          <div class="col-xl-12">
+                            <div class="bradcam_text text-center">
+                        {% for b in book %}
+                                {% for o in owner %}
+
+            {% if b.restaurant == o.restaurant %}
+
+
+                                <div class="booking">
+                                    <h1 style="font-size:50px;color:black;margin-top:70px;"><a href="/viewReservation/{{b.user_id}}"> New reservation for {{b.date}}</a> </h1>
+                                </div>
+            {% endif %}
+
+
+                                {% endfor %}
+                                {% endfor %}
+
+                            </div>
+                             <div class="bradcam_text text-center">
+
+
+
+                                <div class="booking">
+                                    {% if users %}
+                                    <h1 style="font-family:Constantia;color:black;margin-top:200px;">Username: {{users.username}} </h1>
+                                    <h1 style="font-family:Constantia;color:black;">Name: {{users.first_name}} {{users.last_name}}</h1>
+                                    <h1 style="font-family:Constantia;color:black;">Email: {{users.email}} </h1>
+
+                                    {% if books %}
+                                    <h1 style="font-family:Constantia;color:black;">Table Type: {{books.table}} in one </h1>
+                                    <h1 style="font-family:Constantia;color:black;">No of Guests: {{books.guests}} </h1>
+                                    <h1 style="font-family:Constantia;color:black;">Check in Date: {{books.date}} </h1>
+                                    <h1 style="font-family:Constantia;color:black;">Check in Time: {{books.time}} </h1>
+                                    {% endif %}
+                                    {% endif %}
+                                </div>
+
+
+                            </div>
+                              <div>
+
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- slider_area_end -->
+
+<!-- footer start -->
+<section id="section">
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <h3 class="footer_title">
+                                        About
+                                    </h3>
+                                </a>
+                            </div>
+                            <p>
+                                We are team of 4 people. We hope to make it easy for you to find a go to place to enjoy moments with your friends and family.
+                                Nepal is such a beautiful place and we cherish that all the time. So now its time for us to celebrate it together. <br> <br> Join us here !
+                            </p>
+                            <div class="socail_links">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+
+
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Useful Links
+                            </h3>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#"> About</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                        <div class="footer_widget">
+
+                            <h3 class="footer_title">
+                                To contact us
+                            </h3>
+                            <form action="#" class="newsletter_form">
+                                <input type="text" placeholder="Enter your email address">
+                                <button type="submit">Send</button>
+                            </form>
+                            <p class="newsletter_text">Leave your email address and our team will contact you shortly. <br>OR, You can email us at <u>find@myrestaurant.com.np</u> <br>
+                                Contact Address:+977 984-4123456
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center">
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</section>
+<!--/ footer end  -->
+
+<!-- link that opens popup -->
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
+<!-- JS here -->
+
+<script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'js/ajax-form.js' %}"></script>
+<script src="{% static 'js/waypoints.min.js' %}"></script>
+<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'js/scrollIt.js' %}"></script>
+<script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/nice-select.min.js' %}"></script>
+<script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/plugins.js' %}"></script>
+<!-- <script src="{% static 'js/gijgo.min.js' %}"></script> -->
+<script src="{% static 'js/slick.min.js' %}"></script>
+
+<!--contact js-->
+<script src="{% static 'js/contact.js' %}"></script>
+<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static 'js/jquery.form.js' %}"></script>
+<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'js/mail-script.js' %}"></script>
+
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

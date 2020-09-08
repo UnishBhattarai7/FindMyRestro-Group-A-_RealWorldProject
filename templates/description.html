@@ -1,0 +1,502 @@
+<!doctype html>
+{% load static %}
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>FindMyRestro</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/flaticon.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/gijgo.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/slick.css'%}"/>
+    <link rel="stylesheet" href="{% static 'css/slicknav.css'%}"/>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'%}"/>
+
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <!-- <link rel="stylesheet" href="{% static 'css/responsive.css'%}"/> -->
+</head>
+
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- header-start -->
+  <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container-fluid ">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-3 col-md-2 col-sm-3 col-xs-3">
+                                <div class="logo-img">
+                                    <a href="../../home">
+                                       <img class="img-fluid" src="{% static 'img/logo.png' %}" style="height:150px;">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-7 col-lg-7">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="../">Home</a></li>
+                                            <li><a href="../contact">Contact Us</a></li>
+                                            <li><a href="../about">About</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-2 d-none d-lg-block">
+                                <div class="Appointment">
+                                    <div class="d-none d-lg-block">
+                                        {% if user.is_authenticated %}
+
+                                        <div class="col-xl-1 col-lg-1 d-none d-lg-block float-left">
+                                            <div class="Appointment">
+                                                 <div class="book_btn d-none d-lg-block">
+                                                    <a href="../userprofile">
+                                                        {{request.user}}
+                                                    </a>
+                                                 </div>
+                                            </div>
+                                        </div>
+
+                                       <div class="col-xl-1 col-lg-1 d-none d-lg-block float-right">
+                                            <div class="Appointment">
+                                                 <div class="book_btn d-none d-lg-block">
+                                                    <a href="../userlogout">Logout</a>
+                                                 </div>
+                                            </div>
+                                        </div>
+
+                                        {% else %}
+
+                                       <div class="col-xl-1 col-lg-1 d-none d-lg-block float-left">
+                                            <div class="Appointment">
+                                                 <div class="book_btn d-none d-lg-block">
+                                                    <a href="../userlogin">login</a>
+                                                 </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-xl-1 col-lg-1 d-none d-lg-block float-right">
+                                            <div class="Appointment">
+                                                 <div class="book_btn d-none d-lg-block">
+                                                    <a href="../usersignup">Signup</a>
+                                                 </div>
+                                            </div>
+                                        </div>
+
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+  <!-- ================ contact section start ================= -->
+       <div class="bradcam_area bradcam_bg_3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="bradcam_text text-center">
+                            <h4>{{restroids.restaurantName}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ bradcam_area  -->
+
+    <div class="listing_details">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-10 col-md-10">
+                    <div class="col-lg-12">
+                        <div class="row Justify-content-center">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <h3 class="text-center">Restaurant pic</h3>
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-sm-6" style="margin-left:-100px;">
+                                         <img src="{% static '/img/catagory/'%}{{restroids.photo}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" col-sm-6" style="margin-right:-150px;">
+                            <img src="{% static '/img/menu/'%}{{restroids.menu}}" alt="" width="450" height="400">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="single_details col-xl-12 col-lg-12 col-md-12">
+                        <h3>Description</h3>
+                        <h4>Number of two in one table: {{restroids.Table2}}</h4>
+                        <h4>Number of four in one table: {{restroids.Table4}}</h4>
+                        <h4>Number of six in one table: {{restroids.Table6}}</h4>
+                        </div>
+                    <div class="single_details col-xl-12 col-lg-12 col-md-12">
+                        <h3>Location</h3>
+                        <div class="map_Wrap">
+                                <div class="d-sm-block ">
+                                    <div class="map_inner_info">
+                                            <div id="map">
+                                                <iframe style="height: 350px; width: 100%;" src="{{restroids.address}}" width="1000" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                            </div>
+
+                                            <div class="explorer_info">
+                                                    <h3>{{restroids.restaurantName}}</h3>
+                                                    <p>{{restroids.location}}</p>
+                                                    <ul>
+                                                        <li> <i class="fa fa-phone"></i>
+                                                            {{restroids.contactNo}}</li>
+                                                        <li><i class="fa fa-envelope"></i> {{restroids.emailAddress}}</li>
+                                                    </ul>
+                                            </div>
+                                    </div>
+
+
+                    <!--                    <script>
+                                          function initMap() {
+                                            var uluru = {lat: -25.363, lng: 131.044};
+                                            var grayStyles = [
+                                              {
+                                                featureType: "all",
+                                                stylers: [
+                                                  { saturation: -90 },
+                                                  { lightness: 50 }
+                                                ]
+                                              },
+                                              {elementType: 'labels.text.fill', stylers: [{color: '#ccdee9'}]}
+                                            ];
+                                            var map = new google.maps.Map(document.getElementById('map'), {
+                                              center: {lat: -31.197, lng: 150.744},
+                                              zoom: 9,
+                                              styles: grayStyles,
+                                              scrollwheel:  false
+                                            });
+                                          }
+
+                                        </script>
+                                        <script src="restroids.address"></script>-->
+                                </div>
+                        </div>
+                    </div>
+                    <div class="single_details col-xl-12 col-lg-12 col-md-12">
+                        <h3>Contact And Reserve Now</h3>
+                        <div class="col-lg-12 p-0">
+                            <form class="form-contact contact_form" action="../reserve" method="post">
+                                {% csrf_token %}
+                                  <div class="row">
+
+                                    <div class="col-sm-6">
+
+                                        <div class="form-group">
+                                            <Label>Check In Date</Label>
+                                            <input class="form-control" name="date" type="Date" onfocus="this.placeholder = 'Check In Date'" onblur="this.placeholder = 'Check In Date'" placeholder = 'Check In Date'>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <Label class="label" >Check In Time</Label>
+                                        <input class="form-control" name="time" type="Time" onfocus="this.placeholder = ' Visiting Time'" onblur="this.placeholder = 'Visiting Time'" placeholder = 'Visiting Time'>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <Label class="label" >Restaurant</Label>
+                                        <input class="form-control" name="restaurantName" type="text" value="{{restroids.restaurantName}}" onfocus="this.placeholder = '{{restroids.restaurantName}}'" onblur="this.placeholder = '{{restroids.restaurantName}}'" placeholder = '{{restroids.restaurantName}}'>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <Label class="label" >Contact Number</Label>
+                                            <input class="form-control" name="contactNo" type="text" onfocus="this.placeholder = ' Contact Number'" onblur="this.placeholder = 'Contact Number'" placeholder = 'Contact Number'>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <Label class="label" >Table Type</Label>
+                                            <select class="wide form-control" name="Table">
+                                                            <option data-display="Table Type">Choose Table Type</option>
+                                                            <option value="1">Two In One</option>
+                                                            <option value="2">Four In One</option>
+                                                            <option value="3">Six In One</option>
+                                                          </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <Label class="label" >Number of People</Label>
+                                            <input class="form-control" name="Guests" id="name" type="number" max="6" min="1" required onfocus="this.placeholder = ' Number of Guests'" onblur="this.placeholder = 'Number of Guests'" placeholder = 'Number of Guests'>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group float-right">
+                                            <button type="submit" class="button button-contactForm btn_4 boxed-btn2">Reserve</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    </div>
+
+    <!-- explorer_europe start  -->
+    <div class="explorer_europe">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-50">
+                        <h3>You May also Like</h3>
+                    </div>
+                </div>
+            </div>
+                <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single_explorer">
+                                <div class="thumb">
+                                    <img src="img/explorer/1.png" alt="">
+                                </div>
+                                <div class="explorer_bottom d-flex">
+                                    <div class="icon">
+                                        <i class="flaticon-beach"></i>
+                                    </div>
+                                    <div class="explorer_info">
+                                        <h3><a href="#">Saintmartine</a></h3>
+                                        <p>700/D, Kings road, Green lane, London</p>
+                                        <ul>
+                                            <li> <i class="fa fa-phone"></i>
+                                                +10 278 367 9823</li>
+                                            <li><i class="fa fa-envelope"></i> contact@midnight.com</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single_explorer">
+                                <div class="thumb">
+                                    <img src="img/explorer/2.png" alt="">
+                                </div>
+                                <div class="explorer_bottom d-flex">
+                                    <div class="icon">
+                                        <i class="flaticon-food"></i>
+                                    </div>
+                                    <div class="explorer_info">
+                                        <h3><a href="#">Freshly Food</a></h3>
+                                        <p>700/D, Kings road, Green lane, London</p>
+                                        <ul>
+                                            <li> <i class="fa fa-phone"></i>
+                                                +10 278 367 9823</li>
+                                            <li><i class="fa fa-envelope"></i> contact@midnight.com</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="single_explorer">
+                                <div class="thumb">
+                                    <img src="img/explorer/3.png" alt="">
+                                </div>
+                                <div class="explorer_bottom d-flex">
+                                    <div class="icon">
+                                        <i class="flaticon-food-1"></i>
+                                    </div>
+                                    <div class="explorer_info">
+                                        <h3><a href="#">Midnight</a></h3>
+                                        <p>700/D, Kings road, Green lane, London</p>
+                                        <ul>
+                                            <li> <i class="fa fa-phone"></i>
+                                                +10 278 367 9823</li>
+                                            <li><i class="fa fa-envelope"></i> contact@midnight.com</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+        </div>
+    </div>
+    <!-- explorer_europee end  -->
+  <!-- ================ contact section end ================= -->
+
+    <!-- footer start -->
+	<section id="section">
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <h3 class="footer_title">
+										About
+                            </h3>
+                                </a>
+                            </div>
+                            <p>
+                                We are team of 4 people. We hope to make it easy for you to find a go to place to enjoy moments with your friends and family.
+								Nepal is such a beautiful place and we cherish that all the time. So now its time for us to celebrate it together. <br> <br> Join us here !
+                            </p>
+                            <div class="socail_links">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-google-plus"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                           
+                           
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Useful Links
+                            </h3>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#"> About</a></li>
+                             
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                        <div class="footer_widget">
+                             
+							 <h3 class="footer_title">
+                                 To contact us 
+                            </h3>
+                            <form action="#" class="newsletter_form">
+                                <input type="text" placeholder="Enter your email address">
+                                <button type="submit">Send</button>
+                            </form>
+                            <p class="newsletter_text">Leave your email address and our team will contact you shortly. <br>OR, You can email us at <u>find@myrestaurant.com.np</u> <br>
+							   Contact Address:+977 984-4123456  
+                                </p>
+								
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center">
+                           
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+	</section>
+    <!--/ footer end  -->
+    <!-- link that opens popup -->
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"> </script>
+    <!-- JS here -->
+
+   <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/ajax-form.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/scrollIt.js' %}"></script>
+    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/nice-select.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <!-- <script src="{% static 'js/gijgo.min.js' %}"></script> -->
+    <script src="{% static 'js/slick.min.js' %}"></script>
+
+    <!--contact js-->
+    <script src="{% static 'js/contact.js' %}"></script>
+    <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/mail-script.js' %}"></script>
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
+
+
+
+
+
